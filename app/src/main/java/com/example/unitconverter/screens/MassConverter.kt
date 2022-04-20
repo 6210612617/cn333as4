@@ -29,7 +29,7 @@ fun MassConverter() {
     val strKilogram = stringResource(id = R.string.kilogram)
     val strPound = stringResource(id = R.string.pound)
     val currentValue = viewModel.mass.observeAsState(viewModel.mass.value ?: "")
-    val unit = viewModel.unit.observeAsState(viewModel.unit.value ?: R.string.kilogram)
+    val weight = viewModel.unit.observeAsState(viewModel.unit.value ?: R.string.pound)
     var result by rememberSaveable { mutableStateOf("") }
     val enabled by remember(currentValue.value) {
         mutableStateOf(!viewModel.getMassAsFloat().isNaN())
@@ -42,9 +42,9 @@ fun MassConverter() {
             ""
         else
             "$temp${
-                if (unit.value == R.string.kilogram)
-                    strPound
-                else strKilogram
+                if (weight.value == R.string.pound)
+                    strKilogram
+                else strPound
             }"
     }
     Column(
@@ -53,13 +53,13 @@ fun MassConverter() {
     ) {
         MassTextField(
             mass = currentValue,
-            modifier = Modifier.padding(bottom = 16.dp),
+            modifier = Modifier.padding(bottom = 17.dp),
             callback = calc,
             viewModel = viewModel
         )
         MassButtonGroup(
-            selected = unit,
-            modifier = Modifier.padding(bottom = 16.dp)
+            selected = weight,
+            modifier = Modifier.padding(bottom = 14.dp)
         ) { resId: Int -> viewModel.setUnit(resId) }
         Button(
             onClick = calc,
@@ -144,7 +144,7 @@ fun MassRadioButton(
         )
         Text(
             text = stringResource(resId),
-            modifier = Modifier.padding(start = 8.dp)
+            modifier = Modifier.padding(start = 20.dp)
         )
     }
 }

@@ -49,13 +49,13 @@ fun DistancesConverter() {
     ) {
         DistanceTextField(
             distance = currentValue,
-            modifier = Modifier.padding(bottom = 16.dp),
+            modifier = Modifier.padding(bottom = 17.dp),
             callback = calc,
             viewModel = viewModel
         )
         DistanceScaleButtonGroup(
             selected = unit,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 14.dp)
         ) { resId: Int ->
             viewModel.setUnit(resId)
         }
@@ -143,7 +143,7 @@ fun DistanceRadioButton(
         Text(
             text = stringResource(resId),
             modifier = Modifier
-                .padding(start = 8.dp)
+                .padding(start = 20.dp)
         )
     }
 }

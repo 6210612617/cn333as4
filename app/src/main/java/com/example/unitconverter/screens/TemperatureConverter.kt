@@ -49,13 +49,13 @@ fun TemperatureConverter() {
     ) {
         TemperatureTextField(
             temperature = currentValue,
-            modifier = Modifier.padding(bottom = 16.dp),
+            modifier = Modifier.padding(bottom = 17.dp),
             callback = calc,
             viewModel = viewModel
         )
         TemperatureScaleButtonGroup(
             selected = scale,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 14.dp)
         ) { resId: Int -> viewModel.setScale(resId) }
         Button(
             onClick = calc,
@@ -140,7 +140,7 @@ fun TemperatureRadioButton(
         )
         Text(
             text = stringResource(resId),
-            modifier = Modifier.padding(start = 8.dp)
+            modifier = Modifier.padding(start = 20.dp)
         )
     }
 }

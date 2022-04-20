@@ -52,13 +52,13 @@ fun PressureConverter() {
     ) {
         PressureTextField(
             pressure = currentValue,
-            modifier = Modifier.padding(bottom = 16.dp),
+            modifier = Modifier.padding(bottom = 17.dp),
             callback = calc,
             viewModel = viewModel
         )
         PressureButtonGroup(
             selected = unit,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 14.dp)
         ) { resId: Int -> viewModel.setUnit(resId) }
         Button(
             onClick = calc,
@@ -144,7 +144,7 @@ fun PressureRadioButton(
         )
         Text(
             text = stringResource(resId),
-            modifier = Modifier.padding(start = 8.dp)
+            modifier = Modifier.padding(start = 20.dp)
         )
     }
 }
